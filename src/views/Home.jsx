@@ -1,4 +1,5 @@
 import MediaTable from '../components/MediaTable';
+
 const Home = () => {
   return (
     <>
