@@ -1,6 +1,16 @@
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  createTheme,
+  ThemeProvider,
+  Toolbar,
+} from '@mui/material';
 import {useEffect} from 'react';
 import {Link, Outlet, useLocation, useNavigate} from 'react-router-dom';
 import {useUser} from '../hooks/apiHooks';
+import {themeOptions} from '../theme/themeOptions';
 
 const Layout = () => {
   const {getUserByToken} = useUser();
@@ -25,22 +35,36 @@ const Layout = () => {
     getUserInfo();
   }, []);
 
+  const theme = createTheme(themeOptions);
+
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-        </ul>
-      </nav>
-      <main>
-        <Outlet />
-      </main>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container fixed>
+        <AppBar position="sticky">
+          <Toolbar>
+            <Box sx={{flexGrow: 1, display: {xs: 'flex'}}}>
+              <Button
+                sx={{my: 2, color: 'white', display: 'block'}}
+                component={Link}
+                to="/home"
+              >
+                Home
+              </Button>
+              <Button
+                sx={{my: 2, color: 'white', display: 'block'}}
+                component={Link}
+                to="/profile"
+              >
+                Profile
+              </Button>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <main>
+          <Outlet />
+        </main>
+      </Container>
+    </ThemeProvider>
   );
 };
 
