@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+/* import PropTypes from 'prop-types'; */
 import useForm from '../hooks/FormHooks';
 import {useUser} from '../hooks/ApiHooks';
 
