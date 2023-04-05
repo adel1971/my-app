@@ -1,10 +1,10 @@
+import {Button, TextField} from '@mui/material';
 /* import PropTypes from 'prop-types'; */
 import {useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
 import {useAuthentication} from '../hooks/apiHooks';
 import useForm from '../hooks/FormHooks';
-import {Button, TextField} from '@mui/material';
 
 const LoginForm = (props) => {
   const {setUser} = useContext(MediaContext);
@@ -37,7 +37,7 @@ const LoginForm = (props) => {
       <form onSubmit={handleSubmit}>
         <TextField
           fullWidth
-          margin="nordensemal"
+          margin="dense"
           name="username"
           placeholder="Username"
           onChange={handleInputChange}

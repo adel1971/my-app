@@ -3,7 +3,6 @@ import {MediaContext} from '../contexts/MediaContext';
 
 const Profile = () => {
   const {user} = useContext(MediaContext);
-
   return (
     <>
       {user && (
