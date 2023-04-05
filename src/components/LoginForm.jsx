@@ -1,5 +1,4 @@
 import {Box, Button, Container, TextField} from '@mui/material';
-
 import {useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';

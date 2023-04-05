@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import {baseUrl} from '../utils/variables';
-
 const doFetch = async (url, options) => {
   const response = await fetch(url, options);
   const json = await response.json();
@@ -63,7 +62,8 @@ const useUser = () => {
   };
 
   const getCheckUser = async (username) => {
-    return await doFetch(baseUrl + 'users/username/' + username);
+    const {available} = await doFetch(baseUrl + 'users/username/' + username);
+    return available;
   };
 
   return {postUser, getUserByToken, getCheckUser};
