@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import {baseUrl} from '../utils/variables';
+
 const doFetch = async (url, options) => {
   const response = await fetch(url, options);
   const json = await response.json();
@@ -36,7 +37,18 @@ const useMedia = () => {
     }
   }, []);
 
-  return {mediaArray};
+  const postMedia = async (data, token) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'x-access-token': token,
+      },
+      body: data,
+    };
+    return await doFetch(baseUrl + 'media', options);
+  };
+
+  return {mediaArray, postMedia};
 };
 
 const useUser = () => {
