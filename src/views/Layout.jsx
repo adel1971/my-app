@@ -12,8 +12,9 @@ import {
 import {useContext, useEffect} from 'react';
 import {Link, Outlet, useLocation, useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
-import {useUser} from '../hooks/apiHooks';
+
 import {themeOptions} from '../theme/themeOptions';
+import {useUser} from '../hooks/apiHooks';
 
 const Layout = () => {
   const {user, setUser} = useContext(MediaContext);
