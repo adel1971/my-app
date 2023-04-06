@@ -7,7 +7,7 @@ import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {registerForm} from '../utils/errorMessages';
 import {registerValidators} from '../utils/validators';
 import {useEffect} from 'react';
-import {useUser} from '../hooks/apiHooks';
+import {useUser} from '../hooks/ApiHooks';
 
 const RegisterForm = ({toggle}) => {
   const {postUser, getCheckUser} = useUser();

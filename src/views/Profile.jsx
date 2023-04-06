@@ -11,9 +11,8 @@ import {
 } from '@mui/material';
 import {useContext, useEffect, useState} from 'react';
 import {MediaContext} from '../contexts/MediaContext';
-
-import {mediaUrl} from '../utils/variables';
 import {useTag} from '../hooks/ApiHooks';
+import {mediaUrl} from '../utils/variables';
 
 const Profile = () => {
   const {user} = useContext(MediaContext);

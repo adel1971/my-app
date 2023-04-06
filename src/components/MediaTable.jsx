@@ -1,9 +1,10 @@
 import {ImageList} from '@mui/material';
-
-import {useMedia} from '../hooks/apiHooks';
-import {useWindowSize} from '../hooks/WindowHooks';
-
+/* import PropTypes from 'prop-types';
+import {useEffect, useState} from 'react';
+import {baseUrl} from '../utils/variables'; */
 import MediaRow from './MediaRow';
+import {useMedia} from '../hooks/ApiHooks';
+import {useWindowSize} from '../hooks/WindowHooks';
 
 const MediaTable = () => {
   const {mediaArray} = useMedia();
