@@ -17,7 +17,6 @@ const Single = () => {
   try {
     allData = JSON.parse(file.description);
   } catch (error) {}
-
   return (
     <>
       <Typography component="h1" variant="h3">
