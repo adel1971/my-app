@@ -1,4 +1,5 @@
 import {Box, Button, Slider} from '@mui/material';
+/* import PropTypes from 'prop-types'; */
 import useForm from '../hooks/FormHooks';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
@@ -60,7 +61,7 @@ const Upload = (props) => {
     reader.addEventListener('load', () => {
       setSelectedImage(reader.result);
     });
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(event.target.files[0]);
   };
 
   const {inputs, handleSubmit, handleInputChange} = useForm(
@@ -73,7 +74,7 @@ const Upload = (props) => {
     filterInitValues
   );
 
-  console.log('Upload', inputs, filterInputs);
+  console.log('Upload', file);
 
   return (
     <Box>
@@ -81,8 +82,9 @@ const Upload = (props) => {
         src={selectedImage}
         alt="preview"
         style={{
-          width: 300,
-          height: 200,
+          width: '100%',
+          height: 400,
+          objectFit: 'contain',
           filter: `
           brightness(${filterInputs.brightness}%)
           contrast(${filterInputs.contrast}%)
