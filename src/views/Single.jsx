@@ -43,6 +43,8 @@ const Single = () => {
         */}
 
         <CardMedia
+          controls={true}
+          poster={mediaUrl + file.screenshot}
           component={componentType}
           src={mediaUrl + file.filename}
           title={file.title}
@@ -55,6 +57,7 @@ const Single = () => {
             saturate(${allData.filters.saturation}%)
             sepia(${allData.filters.sepia}%)
             `,
+            backgroundImage: file.media_type === 'audio' && `url(/vite.svg)`,
           }}
         />
         <CardContent>
