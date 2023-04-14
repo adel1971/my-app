@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import useForm from '../hooks/FormHooks';
-
+import {useUser} from '../hooks/ApiHooks';
 import {Button} from '@mui/material';
 import {Container} from '@mui/system';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {registerForm} from '../utils/errorMessages';
 import {registerValidators} from '../utils/validators';
 import {useEffect} from 'react';
-import {useUser} from '../hooks/ApiHooks';
 
 const RegisterForm = ({toggle}) => {
   const {postUser, getCheckUser} = useUser();
