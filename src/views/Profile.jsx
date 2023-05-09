@@ -3,6 +3,7 @@ import {
   Avatar,
   Card,
   CardContent,
+  Container,
   List,
   ListItem,
   ListItemAvatar,
@@ -13,6 +14,7 @@ import {useContext, useEffect, useState} from 'react';
 import {MediaContext} from '../contexts/MediaContext';
 import {useTag} from '../hooks/ApiHooks';
 import {mediaUrl} from '../utils/variables';
+import MyFiles from './MyFiles';
 
 const Profile = () => {
   const {user} = useContext(MediaContext);
@@ -39,50 +41,66 @@ const Profile = () => {
   }, [user]);
 
   return (
-    <Card>
-      {user && (
-        <CardContent>
-          <List>
-            <ListItem>
-              <ListItemAvatar sx={{width: '100%'}}>
-                <Avatar
-                  variant="square"
-                  src={avatar.filename}
-                  imgProps={{
-                    alt: `${user.username}'s profile image`,
-                  }}
-                  sx={{width: '100%', height: '30vh'}}
-                />
-              </ListItemAvatar>
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <AccountCircle />
-              </ListItemIcon>
-              <ListItemText primary={user.username} />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <ContactMail />
-              </ListItemIcon>
-              <ListItemText primary={user.email} />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Badge />
-              </ListItemIcon>
-              <ListItemText primary={user.full_name} />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <Badge />
-              </ListItemIcon>
-              <ListItemText primary={user.user_id} />
-            </ListItem>
-          </List>
-        </CardContent>
-      )}
-    </Card>
+    <Container>
+      <Card
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          placeItems: 'center',
+          width: '80vw',
+          height: '2000vh',
+          margin: 'auto',
+        }}
+      >
+        {user && (
+          <CardContent>
+            <List>
+              <ListItem>
+                <ListItemAvatar sx={{width: '100%'}}>
+                  <Avatar
+                    variant="cycle"
+                    src={avatar.filename}
+                    imgProps={{
+                      alt: `${user.username}'s profile image`,
+                    }}
+                    sx={{
+                      width: '40vh',
+                      height: '40vh',
+                      left: '50px',
+                    }}
+                  />
+                </ListItemAvatar>
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <AccountCircle />
+                </ListItemIcon>
+                <ListItemText primary={user.username} />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <ContactMail />
+                </ListItemIcon>
+                <ListItemText primary={user.email} />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Badge />
+                </ListItemIcon>
+                <ListItemText primary={user.full_name} />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <Badge />
+                </ListItemIcon>
+                <ListItemText primary={user.user_id} />
+              </ListItem>
+            </List>
+          </CardContent>
+        )}
+        <MyFiles />
+      </Card>
+    </Container>
   );
 };
 

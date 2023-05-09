@@ -1,3 +1,13 @@
 button:focus {
   outline: none !important;
 }
+span {
+  width: 350px;
+}
+.google {
+  margin: 40px 0 0 0;
+}
+.MuiButtonGroup-root MuiButtonGroup-outlined css-iajp3t-MuiButtonGroup-root {
+  display: inline-flex;
+  justify-content: space-between;
+}

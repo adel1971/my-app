@@ -1,4 +1,4 @@
-import {Box, Button, Slider} from '@mui/material';
+import {Box, Button, Container, Slider} from '@mui/material';
 import useForm from '../hooks/FormHooks';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
@@ -8,7 +8,7 @@ import {useMedia, useTag} from '../hooks/ApiHooks';
 const Upload = () => {
   const [file, setFile] = useState(null);
   const [selectedImage, setSelectedImage] = useState(
-    'https://placekitten.com/600/400'
+    'src/images/png-transparent-upload-files-icon-thumbnail.png'
   );
   // 'https://placehold.co/600x400?text=Choose-media'
   const {postMedia} = useMedia();
@@ -76,79 +76,94 @@ const Upload = () => {
   console.log('Upload', file);
 
   return (
-    <Box>
-      <img
-        src={selectedImage}
-        alt="preview"
-        style={{
-          width: '100%',
-          height: 400,
-          objectFit: 'contain',
-          filter: `
+    <Container
+      sx={{
+        width: '800px',
+        display: 'flax',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}
+    >
+      <Box sx={{width: '800px', alignItems: 'center'}}>
+        <img
+          src={selectedImage}
+          alt="preview"
+          style={{
+            width: '100%',
+            height: 400,
+            objectFit: 'contain',
+            filter: `
           brightness(${filterInputs.brightness}%)
           contrast(${filterInputs.contrast}%)
           saturate(${filterInputs.saturation}%)
           sepia(${filterInputs.sepia}%)
           `,
-        }}
-      />
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleInputChange}
-          type="text"
-          name="title"
-          value={inputs.title}
-        ></input>
-        <textarea
-          onChange={handleInputChange}
-          name="description"
-          value={inputs.description}
-        ></textarea>
-        <input
-          onChange={handleFileChange}
-          type="file"
-          name="file"
-          accept="image/*,video/*,audio/*"
-        ></input>
-        <Button type="submit">Upload</Button>
-      </form>
-      <Slider
-        name="brightness"
-        min={0}
-        max={200}
-        step={1}
-        valueLabelDisplay="auto"
-        onChange={handleFilterChange}
-        value={filterInputs.brightness}
-      />
-      <Slider
-        name="contrast"
-        min={0}
-        max={200}
-        step={1}
-        valueLabelDisplay="auto"
-        onChange={handleFilterChange}
-        value={filterInputs.contrast}
-      />
-      <Slider
-        name="saturation"
-        min={0}
-        max={200}
-        step={1}
-        valueLabelDisplay="auto"
-        onChange={handleFilterChange}
-        value={filterInputs.saturation}
-      />
-      <Slider
-        name="sepia"
-        min={0}
-        max={100}
-        step={1}
-        valueLabelDisplay="auto"
-        onChange={handleFilterChange}
-        value={filterInputs.sepia}
-      />
-    </Box>
+          }}
+        />
+        <form onSubmit={handleSubmit}>
+          <Box>
+            {' '}
+            <input
+              onChange={handleInputChange}
+              type="text"
+              name="title"
+              value={inputs.title}
+            ></input>
+            <input
+              onChange={handleInputChange}
+              name="description"
+              value={inputs.description}
+            ></input>
+            <input
+              onChange={handleFileChange}
+              type="file"
+              name="file"
+              accept="image/*,video/*,audio/*"
+            ></input>
+            <Button type="submit" variant="contained">
+              Upload
+            </Button>
+          </Box>
+        </form>
+
+        <Slider
+          name="brightness"
+          min={0}
+          max={200}
+          step={1}
+          valueLabelDisplay="auto"
+          onChange={handleFilterChange}
+          value={filterInputs.brightness}
+        />
+        <Slider
+          name="contrast"
+          min={0}
+          max={200}
+          step={1}
+          valueLabelDisplay="auto"
+          onChange={handleFilterChange}
+          value={filterInputs.contrast}
+        />
+        <Slider
+          name="saturation"
+          min={0}
+          max={200}
+          step={1}
+          valueLabelDisplay="auto"
+          onChange={handleFilterChange}
+          value={filterInputs.saturation}
+        />
+        <Slider
+          name="sepia"
+          min={0}
+          max={100}
+          step={1}
+          valueLabelDisplay="auto"
+          onChange={handleFilterChange}
+          value={filterInputs.sepia}
+        />
+      </Box>
+    </Container>
   );
 };
 

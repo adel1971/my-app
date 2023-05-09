@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import useForm from '../hooks/FormHooks';
 import {useUser} from '../hooks/ApiHooks';
-import {Button} from '@mui/material';
+import {Button, CardContent, Typography} from '@mui/material';
 import {Container} from '@mui/system';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {registerForm} from '../utils/errorMessages';
@@ -48,6 +48,12 @@ const RegisterForm = ({toggle}) => {
 
   return (
     <Container maxWidth="xs">
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          <h2>Create an account </h2>
+          Let’s get started with your 30 day free trial!
+        </Typography>
+      </CardContent>
       <ValidatorForm onSubmit={handleSubmit} noValidate>
         <TextValidator
           fullWidth

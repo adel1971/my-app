@@ -107,13 +107,6 @@ const Single = () => {
         {file.title}
       </Typography>
       <Card>
-        {/*
-        toinen tapa
-        {file.media_type === 'image' && <img src="" alt="" />}
-        {file.media_type === 'video' && <video src="" />}
-        {file.media_type === 'audio' && <audio src="" />}
-        */}
-
         <CardMedia
           controls={true}
           poster={mediaUrl + file.screenshot}
