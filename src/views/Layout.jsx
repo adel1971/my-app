@@ -74,7 +74,7 @@ const Layout = () => {
                   <CardMedia
                     component="img"
                     height="60px"
-                    image="/src/images/senior App.png"
+                    image="/src/images/senior-App.png"
                     alt="SeniorApp"
                   />
                 </Card>{' '}
