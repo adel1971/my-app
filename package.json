@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/~adelal/my-app/myApp/",
+    "build": "vite build --base=/~adelal/my-app/MyApp/",
     "preview": "vite preview"
   },
   "dependencies": {
